@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="Ofo.View.LoginSecondStepPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ofo.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Button Style="{StaticResource ImageButtonStyle}" Padding="24">
+                <Image Source="/Assets/icon_back.png" Height="24"/>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="1" Padding="24,0">
+            <StackPanel>
+                <TextBlock Text="验证码已发送至" FontSize="34" Margin="0,36"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="17628036745" FontSize="18" Margin="8,0,0,0"/>
+                    
+                     
+                    <HyperlinkButton Grid.Column="1" HorizontalAlignment="Right">
+                        <TextBlock FontSize="15" Foreground="#FF0078D7" Text="获取验证码"/>
+                    </HyperlinkButton>
+
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"
+                               Visibility="Collapsed">
+                        <Run>(</Run>
+                        <Run Text="11"/>
+                        <Run Text="秒)"/>
+                    </TextBlock>
+                </Grid>
+
+                <TextBox PlaceholderText="输入短信验证码" InputScope="Number" 
+                         Margin="0,12,0,0"
+                         Height="40"
+                         Text="2222"
+                         Style="{StaticResource OfoTextBoxStyle}"/>
+                
+                <Button Content="注册/登录"
+                        Margin="32,44,32,0"
+                        MinWidth="200"
+                        HorizontalAlignment="Stretch"
+                        Style="{StaticResource StandardButtonStyle}"/>
+
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Margin="12">
+                    <TextBlock FontSize="11">注册即表示你已阅读，并同意</TextBlock>
+                    <HyperlinkButton Padding="0" Foreground="{StaticResource MainColorBrush}" Command="{Binding RegistrationProtocolCommand}">
+                        <TextBlock FontSize="11">《用户注册协议》</TextBlock>
+                    </HyperlinkButton>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

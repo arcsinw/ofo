@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{7274C39F-D26E-4C91-90B5-2D82AF106942}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ofo</RootNamespace>
+    <AssemblyName>Ofo</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <PackageCertificateKeyFile>Ofo_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\DelegateCommand.cs" />
+    <Compile Include="Common\DelegateCommand{T}.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Http\HttpHelper.cs" />
+    <Compile Include="Http\HttpItem.cs" />
+    <Compile Include="Http\HttpResult.cs" />
+    <Compile Include="Models\LoginStatus.cs" />
+    <Compile Include="Models\Requests\BasePositionRequest.cs" />
+    <Compile Include="Models\Requests\BaseRequest.cs" />
+    <Compile Include="Models\Requests\ConfirmToPayRequest.cs" />
+    <Compile Include="Models\Requests\CreditHistoriesRequest.cs" />
+    <Compile Include="Models\Requests\DetailsRequest.cs" />
+    <Compile Include="Models\Requests\EndRideRequest.cs" />
+    <Compile Include="Models\Requests\IdentificationRequest.cs" />
+    <Compile Include="Models\Requests\LoginRequest.cs" />
+    <Compile Include="Models\Requests\ModifyNickRequest.cs" />
+    <Compile Include="Models\Requests\ModifyUserAvatarRequest.cs" />
+    <Compile Include="Models\Requests\RepairReasonListRequest.cs" />
+    <Compile Include="Models\Requests\ReportRepairRequest.cs" />
+    <Compile Include="Models\Requests\UnfinishedOrderRequest.cs" />
+    <Compile Include="Models\Requests\UnLockCarRequest.cs" />
+    <Compile Include="Models\Requests\VerifyCodeRequest.cs" />
+    <Compile Include="Models\Results\ActivityHomePageDetailResult.cs" />
+    <Compile Include="Models\Results\ActivityListResult.cs" />
+    <Compile Include="Models\Results\AdvertisementResult.cs" />
+    <Compile Include="Models\Results\BaseResult.cs" />
+    <Compile Include="Models\Results\BlueBarResult.cs" />
+    <Compile Include="Models\Results\ConfigResult.cs" />
+    <Compile Include="Models\Results\ConfirmToPayResult.cs" />
+    <Compile Include="Models\Results\ConsumerDetailsResult.cs" />
+    <Compile Include="Models\Results\EndRideResult.cs" />
+    <Compile Include="Models\Results\GetCaptchaCodeResult.cs" />
+    <Compile Include="Models\Results\GetCreditHistoriesResult.cs" />
+    <Compile Include="Models\Results\GetVerifyCodeResult.cs" />
+    <Compile Include="Models\Results\IdentificationResult.cs" />
+    <Compile Include="Models\Results\LoginResult.cs" />
+    <Compile Include="Models\Results\NearByOfoCarsResult.cs" />
+    <Compile Include="Models\Results\RechargeDetailsResult.cs" />
+    <Compile Include="Models\Results\RedPacketListResult.cs" />
+    <Compile Include="Models\Results\RepairReasonListResult.cs" />
+    <Compile Include="Models\Results\UnfinishedOrderResult.cs" />
+    <Compile Include="Models\Results\UnLockCarResult.cs" />
+    <Compile Include="Models\Results\UserInfoResult.cs" />
+    <Compile Include="Models\Results\UserProfileResult.cs" />
+    <Compile Include="Models\Results\WalletInfoResult.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Services\ApiUrls.cs" />
+    <Compile Include="Services\OfoWebApiService.cs" />
+    <Compile Include="Utils\AccessStreamUtility.cs" />
+    <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="View\EndRidePage.xaml.cs">
+      <DependentUpon>EndRidePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginFirstStepPage.xaml.cs">
+      <DependentUpon>LoginFirstStepPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginSecondStepPage.xaml.cs">
+      <DependentUpon>LoginSecondStepPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApiBaseService.cs" />
+    <Compile Include="Services\HttpBaseService.cs" />
+    <Compile Include="Utils\JsonHelper.cs" />
+    <Compile Include="View\SplashPage.xaml.cs">
+      <DependentUpon>SplashPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserAgreementPage.xaml.cs">
+      <DependentUpon>UserAgreementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserProfilePage.xaml.cs">
+      <DependentUpon>UserProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="Assets\actionbar_icon_close.png" />
+    <Content Include="Assets\bluebar_fold.png" />
+    <Content Include="Assets\bluebar_unfold.png" />
+    <Content Include="Assets\certified_icon.png" />
+    <Content Include="Assets\certify_icon.png" />
+    <Content Include="Assets\default_journey_fragment_bg.9.png" />
+    <Content Include="Assets\flashlight_off_bg.png" />
+    <Content Include="Assets\flashlight_on_bg.png" />
+    <Content Include="Assets\Font\iconfont.ttf" />
+    <None Include="Ofo_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\about_pic.png" />
+    <Content Include="Assets\bt_group.png" />
+    <Content Include="Assets\default_avatar_img.png" />
+    <Content Include="Assets\icon_back.png" />
+    <Content Include="Assets\icon_bike_nearby.png" />
+    <Content Include="Assets\icon_edge.png" />
+    <Content Include="Assets\icon_location.png" />
+    <Content Include="Assets\icon_location_bg.png" />
+    <Content Include="Assets\icon_my_service.png" />
+    <Content Include="Assets\icon_new_game_center.png" />
+    <Content Include="Assets\icon_refresh.png" />
+    <Content Include="Assets\icon_report.png" />
+    <Content Include="Assets\icon_report_repair.png" />
+    <Content Include="Assets\icon_user_center.png" />
+    <Content Include="Assets\image_placeholder.png" />
+    <Content Include="Assets\img_bike_nearby_big.png" />
+    <Content Include="Assets\img_splash_logo.png" />
+    <Content Include="Assets\img_use_bike_default.png" />
+    <Content Include="Assets\invalidated.png" />
+    <Content Include="Assets\invite_img.png" />
+    <Content Include="Assets\journey_img.png" />
+    <Content Include="Assets\light_off.png" />
+    <Content Include="Assets\light_on.png" />
+    <Content Include="Assets\logo_bike.png" />
+    <Content Include="Assets\map_marker.png" />
+    <Content Include="Assets\menu_bottom_bg.png" />
+    <Content Include="Assets\money_card_bg.png" />
+    <Content Include="Assets\nearby_car_big_point.png" />
+    <Content Include="Assets\new_splash_content.png" />
+    <Content Include="Assets\overtime.png" />
+    <Content Include="Assets\package_card_bg.png" />
+    <Content Include="Assets\splash_video.mp4" />
+    <Content Include="Assets\start_center_point.png" />
+    <Content Include="Assets\ticket_card_bg.png" />
+    <Content Include="Assets\wallet_bg_remain.png" />
+    <Content Include="Assets\wallet_img.png" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EndRidePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginFirstStepPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginSecondStepPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SplashPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserAgreementPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WelcomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmLight">
+      <Version>5.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Logos\" />
+    <Folder Include="Assets\TransparentLogos\" />
+    <Folder Include="Controls\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

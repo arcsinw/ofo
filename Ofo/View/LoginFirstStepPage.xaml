@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="Ofo.View.LoginFirstStepPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ofo.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+       
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Image Source="/Assets/logo_bike.png" HorizontalAlignment="Left" 
+                   Margin="24,12"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Padding="24,0">
+            <StackPanel>
+                <TextBlock Text="欢迎你" FontSize="34" Margin="0,36"/>
+                <TextBox PlaceholderText="输入手机号" 
+                         Height="40"
+                         InputScope="TelephoneNumber"
+                         Style="{StaticResource OfoTextBoxStyle}"/>
+                <Grid Margin="0,12,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBox PlaceholderText="输入右边数字" 
+                         Grid.Column="0"
+                         Height="40"
+                         Margin="0,12,0,0"
+                         InputScope="Number"
+                         Style="{StaticResource OfoTextBoxStyle}"/>
+
+                    <StackPanel Grid.Column="1" VerticalAlignment="Bottom"
+                                BorderBrush="LightGray" BorderThickness="1"
+                                Orientation="Horizontal">
+                        <Image Height="40" Width="100"/>
+
+                        <Button HorizontalAlignment="Right" Background="White" 
+                                Height="40" Width="40" Padding="4"
+                                Style="{StaticResource ImageButtonStyle}">
+                            <Image Source="/Assets/icon_refresh.png" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <Button Content="下一步"
+                        Margin="32,44"
+                        MinWidth="200"
+                        HorizontalAlignment="Stretch"
+                        Style="{StaticResource StandardButtonStyle}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
