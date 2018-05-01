@@ -5,7 +5,6 @@
     /// </summary>
     public class User
     { 
-
         /// <summary>
         /// 电话号码
         /// </summary>
@@ -15,16 +14,6 @@
         /// Token
         /// </summary>
         public string Token { get; set; }
-
-          
-
-        /// <summary>
-        /// 用户
-        /// </summary>
-        public User()
-        {
-        }
-
          
     }
 }

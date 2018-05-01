@@ -25,9 +25,10 @@ namespace Ofo.View
             this.InitializeComponent();
         }
 
-        public void NavigateToLoginPage()
+        public void NavigateToLoginPage(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(LoginFirstStepPage));
         }
+         
     }
 }

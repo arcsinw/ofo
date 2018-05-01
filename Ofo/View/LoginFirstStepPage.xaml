@@ -5,7 +5,10 @@
     xmlns:local="using:Ofo.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    DataContext="{Binding Path=LoginFirstPageInstance, Source={StaticResource ViewModelLocator}}">
     <Page.Resources>
        
     </Page.Resources>
@@ -27,7 +30,8 @@
                 <TextBox PlaceholderText="输入手机号" 
                          Height="40"
                          InputScope="TelephoneNumber"
-                         Style="{StaticResource OfoTextBoxStyle}"/>
+                         Style="{StaticResource OfoTextBoxStyle}"
+                         Text="{Binding TelePhone, Mode=TwoWay}"/>
                 <Grid Margin="0,12,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -39,16 +43,24 @@
                          Height="40"
                          Margin="0,12,0,0"
                          InputScope="Number"
-                         Style="{StaticResource OfoTextBoxStyle}"/>
+                         Style="{StaticResource OfoTextBoxStyle}"
+                         Text="{Binding CaptchaCode}"/>
 
                     <StackPanel Grid.Column="1" VerticalAlignment="Bottom"
                                 BorderBrush="LightGray" BorderThickness="1"
                                 Orientation="Horizontal">
-                        <Image Height="40" Width="100"/>
+                        <Image Height="40" Width="100" Source="{Binding VerifyCodeImage}">
+                            <interactivity:Interaction.Behaviors>
+                                <core:EventTriggerBehavior EventName="Tapped">
+                                    <core:InvokeCommandAction Command="{Binding RefreshCaptchaCodeCommand}"/>
+                                </core:EventTriggerBehavior>
+                            </interactivity:Interaction.Behaviors>
+                        </Image>
 
                         <Button HorizontalAlignment="Right" Background="White" 
                                 Height="40" Width="40" Padding="4"
-                                Style="{StaticResource ImageButtonStyle}">
+                                Style="{StaticResource ImageButtonStyle}"
+                                Command="{Binding RefreshCaptchaCodeCommand}">
                             <Image Source="/Assets/icon_refresh.png" />
                         </Button>
                     </StackPanel>

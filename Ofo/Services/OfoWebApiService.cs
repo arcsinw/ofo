@@ -1,4 +1,5 @@
-﻿using Ofo.Models.Results;
+﻿using Ofo.Models;
+using Ofo.Models.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,25 +19,25 @@ namespace Ofo.Services
         #endregion
 
 
+        public User User { get; set; } = new User();
+
         #region Login
 
         /// <summary>
         /// 获取登录验证码
         /// </summary>
-        public async Task GetCaptchaCodeAsync()
+        public async Task<GetCaptchaCodeResult> GetCaptchaCodeAsync()
         {
-            var captchaCode = await GetResponseAsync<GetCaptchaCodeResult>(ApiUrls.GetCaptchaCode);
-            if (captchaCode.IsSuccess)
-            {
-                
-            }
+            var captchaCode = await PostJsonAsync<GetCaptchaCodeResult>(ApiUrls.GetCaptchaCode, "");
+
+            return captchaCode;
         }
 
         /// <summary>
         /// 提交登录验证码
         /// </summary>
         /// <returns></returns>
-        public async void SubmitCaptchaCodeAsync()
+        public async void SubmitCaptchaCodeAsync(string captchaCode, string verifyId)
         {
 
         }
@@ -46,7 +47,8 @@ namespace Ofo.Services
         /// 获取手机短信验证码
         /// </summary>
         /// <param name="phoneNumber"></param>
-        public void GetVerifyCodeAsync(string phoneNumber)
+        /// <param name="verifyId">提交登录验证码获取的verifyId</param>
+        public void GetVerifyCodeAsync(string phoneNumber, string verifyId)
         {
 
         }

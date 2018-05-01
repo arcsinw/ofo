@@ -1,7 +1,8 @@
 ﻿using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Views; 
+using GalaSoft.MvvmLight.Views;
+using Ofo.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,9 @@ namespace Ofo.ViewModels
     public class ViewModelLocator 
     {
         #region Keys 
+        private const string MainPageKey = "MainPage";
+        private const string LoginFirstStepPageKey = "LoginFirstStepPage";
+        private const string LoginSecondStepPageKey = "LoginSecondStepPage";
         #endregion
 
         public ViewModelLocator()
@@ -32,12 +36,14 @@ namespace Ofo.ViewModels
 
         private void Configure()
         {
-            var nav = SimpleIoc.Default.GetInstance<INavigationService>();
-            
+            var nav = new NavigationService();
+            nav.Configure(MainPageKey,typeof(MainPage));
+            nav.Configure(LoginFirstStepPageKey, typeof(LoginFirstStepPage));
+            nav.Configure(LoginSecondStepPageKey, typeof(LoginSecondStepPage));
+
 
             SimpleIoc.Default.Register<INavigationService>(() => nav);
-            //SimpleIoc.Default.Register<IMasterDetailNavigationService>(() => nav);
-            //SimpleIoc.Default.Register<NewsPageViewModel>();
+            SimpleIoc.Default.Register<LoginFirstStepPageViewModel>();
             //SimpleIoc.Default.Register<WebViewPageViewModel>();
             //SimpleIoc.Default.Register<MasterDetailPageViewModel>();
             //SimpleIoc.Default.Register<MainPageViewModel>();
@@ -46,13 +52,19 @@ namespace Ofo.ViewModels
         }
 
         #region ViewModels' instances 
-
+        public LoginFirstStepPageViewModel LoginFirstPageInstance
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<LoginFirstStepPageViewModel>();
+            }
+        }
         #endregion
 
         public static void Cleanup()
         {
             SimpleIoc.Default.Reset();
-             
+            SimpleIoc.Default.Register<LoginFirstStepPageViewModel>();
         }
     }
 }

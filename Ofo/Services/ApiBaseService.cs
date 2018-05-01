@@ -36,14 +36,14 @@ namespace Ofo.Services
             }
         }
 
-        protected async Task<JsonObject> PostJsonAsync(string uri,string body)
+        protected async Task<T> PostJsonAsync<T>(string uri,string body) where T : class
         {
             try
             {
                 string json = await HttpBaseService.SendPostRequest(uri, body);
                 if(json!= null)
                 {
-                    return JsonObject.Parse(json);
+                    return JsonHelper.Deserlialize<T>(json);
                 }
                 return null;
             }

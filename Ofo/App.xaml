@@ -3,9 +3,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Ofo"
-    RequestedTheme="Light">
+    RequestedTheme="Light"
+    xmlns:vm="using:Ofo.ViewModels">
     <Application.Resources>
         <ResourceDictionary>
+
+            <vm:ViewModelLocator x:Key="ViewModelLocator"/>
+            
             <!--<ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
                     <SolidColorBrush x:Key="AppThemeColorBrush" Color="#FFFFDF50"/>

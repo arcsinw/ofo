@@ -6,9 +6,7 @@ namespace Ofo.Models.Results
     /// 验证码结果
     /// </summary>
     public class CaptchaCodeInfo
-    {
-         
-
+    { 
         /// <summary>
         /// 验证字符串
         /// </summary>
@@ -20,7 +18,6 @@ namespace Ofo.Models.Results
         /// </summary>
         [JsonProperty("verifyId")]
         public string VerifyId { get; set; }
-
          
     }
 
@@ -28,12 +25,8 @@ namespace Ofo.Models.Results
     /// 验证码请求结果
     /// </summary>
     public class GetCaptchaCodeResult : BaseResult
-    {
-         
-
+    { 
         [JsonProperty("values")]
-        public CaptchaCodeInfo Data { get; set; }
-
-         
+        public CaptchaCodeInfo Data { get; set; } 
     }
 }
